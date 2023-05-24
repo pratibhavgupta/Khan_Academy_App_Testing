@@ -5,19 +5,18 @@ class FindElement_POM{
            return await $(`~${locator}`)
         }else if(locator_type=="resource-id"){
             return await $(`//*[@resource-id=${locator}]`);
+        }else if(locator_type=="className"){
+            return await $(`${locator}`);
         }else if(locator_type=="xpath"){
             return await $(`//*[@text=${locator}]`);
-        }else if(locator_type=="className"){
+        }else if(locator_type=="fullXpath"){
             return await $(`${locator}`);
         }
     }
 
     async xpath(locator_type,locator,attribute){
-        if(locator_type=="fullXpath"){
-            return await $(`${locator}`);
-        }else if(locator_type=="xpath"){
-            return await $(`//*[@${attribute}=${locator}]`);
-        }
+        
+       return await $(`//*[@${attribute}=${locator}]`);
     }
 }
 

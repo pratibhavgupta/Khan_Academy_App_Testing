@@ -8,11 +8,13 @@ describe('Testing the Khan Academy Application', () => {
 
     it.only('first tc', async() => {
         await Wait_POM.waitFor(8000);
+        (await FindElement_POM.find("resource-id","whatsNewScreenDismissButton")).touchAction('tap');
+
        (await FindElement_POM.find("accessibility-id","Explore")).touchAction('tap');
-       
-        await  Wait_POM.waitFor(5000);
-        await StartActivity_POM.activity("org.khanacademy.android",".ui.library.MainActivity");
-        Wait_POM.waitFor(5000);
+        await  Wait_POM.waitFor(2000);
+        (await FindElement_POM.find("xpath","Computing")).touchAction('tap');
+    //     await StartActivity_POM.activity("org.khanacademy.android",".ui.library.MainActivity");
+    //     Wait_POM.waitFor(5000);
     });
 
     // it('tc1', async() => {
