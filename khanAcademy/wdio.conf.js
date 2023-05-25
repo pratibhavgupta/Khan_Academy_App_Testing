@@ -58,7 +58,7 @@ exports.config = {
     capabilities: [{
         // capabilities for local Appium web tests on an Android Emulator
         "appium:platformName": 'Android', // or "iOS"
-        'appium:deviceName': 'realme RMX3085', // or "iPhone Simulator"
+        'appium:deviceName': 'Mahi', // or "iPhone Simulator"
         'appium:automationName': 'UiAutomator2', // or "XCUITest"
         "appium:app":path.join(process.cwd(),'/App/Android/khan-academy-7-9-1.apk'),
         "appium:autoGrantPermissions":true
