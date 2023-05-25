@@ -14,7 +14,10 @@ class FindElement_POM{
         }
     }
 
-
+    xpath(locator,attribute){
+        
+       return $(`//*[@${attribute}="${locator}"]`);
+    }
 
     xpathL(selector,locator,attribute){
         
