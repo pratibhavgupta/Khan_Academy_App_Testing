@@ -1,23 +1,28 @@
 class FindElement_POM{
 
-    async find(locator_type,locator){
+    find(locator_type,locator){
         if(locator_type=="accessibility-id"){
-           return await $(`~${locator}`)
+            return $(`~${locator}`);
         }else if(locator_type=="resource-id"){
-            return await $(`//*[@resource-id=${locator}]`);
+            return $(`//*[@resource-id="${locator}"]`);
         }else if(locator_type=="className"){
-            return await $(`${locator}`);
+            return $(`${locator}`);
         }else if(locator_type=="xpath"){
-            return await $(`//*[@text=${locator}]`);
+            return $(`//*[@text="${locator}"]`);
         }else if(locator_type=="fullXpath"){
-            return await $(`${locator}`);
+            return $(`${locator}`);
         }
     }
 
-    async xpath(locator_type,locator,attribute){
+    xpath(locator,attribute){
         
-       return await $(`//*[@${attribute}=${locator}]`);
+       return $(`//*[@${attribute}="${locator}"]`);
     }
+
+    xpathL(selector,locator,attribute){
+        
+        return $(`//${selector}[@${attribute}="${locator}"]`);
+     }
 }
 
 module.exports=new FindElement_POM();
