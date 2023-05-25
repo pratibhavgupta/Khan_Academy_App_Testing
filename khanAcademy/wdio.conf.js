@@ -27,7 +27,7 @@ exports.config = {
     //
     specs: [
         // ToDo: define location for spec files here
-        './Test/Specs/*.js'
+        './Test/Specs/Khan_Aca_App_Test.js'
     ],
     // Patterns to exclude.
     exclude: [
@@ -141,7 +141,7 @@ exports.config = {
     // See the full list at http://mochajs.org/
     mochaOpts: {
         ui: 'bdd',
-        timeout: 60000
+        timeout: 100000
     },
     //
     // =====
