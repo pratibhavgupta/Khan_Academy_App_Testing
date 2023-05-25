@@ -6,7 +6,7 @@ const Wait_POM = require("../PageObjects/Wait_POM");
 
 describe('Testing the Khan Academy Application', () => {
 
-    it.only('first tc', async() => {
+    it.skip('first tc', async() => {
         await Wait_POM.waitFor(8000);
         (await FindElement_POM.find("resource-id","whatsNewScreenDismissButton")).touchAction('tap');
 
@@ -17,10 +17,10 @@ describe('Testing the Khan Academy Application', () => {
     //     Wait_POM.waitFor(5000);
     });
 
-    // it('tc1', async() => {
+    //  it('tc1', async() => {
         
-    // });
-
+    //  });
+ 
     // it('tc2', async() => {
        
     // });

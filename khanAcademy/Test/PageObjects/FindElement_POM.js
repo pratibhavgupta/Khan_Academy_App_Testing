@@ -14,7 +14,7 @@ class FindElement_POM{
         }
     }
 
-    async xpath(locator_type,locator,attribute){
+    async xpath(locator,attribute){
         
        return await $(`//*[@${attribute}=${locator}]`);
     }
