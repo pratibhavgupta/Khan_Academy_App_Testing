@@ -27,7 +27,7 @@ exports.config = {
     //
     specs: [
         // ToDo: define location for spec files here
-        './Test/Specs/Khan_Aca_App_Test.js'
+        './Test/Specs/testCases.js'
     ],
     // Patterns to exclude.
     exclude: [
@@ -58,7 +58,7 @@ exports.config = {
     capabilities: [{
         // capabilities for local Appium web tests on an Android Emulator
         "appium:platformName": 'Android', // or "iOS"
-        'appium:deviceName': 'realme RMX3085', // or "iPhone Simulator"
+        'appium:deviceName': 'Abhay', // or "iPhone Simulator"
         'appium:automationName': 'UiAutomator2', // or "XCUITest"
         "appium:app":path.join(process.cwd(),'/App/Android/khan-academy-7-9-1.apk'),
         "appium:autoGrantPermissions":true
