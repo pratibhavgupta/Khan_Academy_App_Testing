@@ -244,7 +244,7 @@ exports.config = {
      */
     afterTest: function(test, context, { error, result, duration, passed, retries }) {
         if (error) {
-            driver.takeScreenshot();
+            browser.takeScreenshot();
           }
     },
 
