@@ -20,25 +20,21 @@ describe('Testing the Khan Academy Application', () => {
         await Wait_POM.waitFor(2000);
 
         await FindElement_POM.find("xpath","Cryptography").click();
-
-
         
     });
 
     it('Tap on Bookmark icon for 3 Topics', async() => {
         await FindElement_POM.find("accessibility-id","Add Bookmark").click();
-        // driver.acceptAlert();
+        
         await FindElement_POM.find("resource-id","android:id/button2").click();
+
+        await Scrolling_POM.scrollTo("Cryptography challenge 101");
+        await FindElement_POM.find("accessibility-id", "Add Bookmark").click();
 
         await Scrolling_POM.scrollTo("Modular arithmetic");
         await FindElement_POM.find("accessibility-id","Add Bookmark").click();
-
         
-        await Scrolling_POM.scrollTo("Cryptography challenge 101");
-        await FindElement_POM.find("accessibility-id","Add Bookmark").click();
 
-        // await StartActivity_POM.activity("org.khanacademy.android",".ui.library.MainActivity");
-        // await Wait_POM.waitFor();
     });
 
     it('Go back to Computer Science page', async() => {
@@ -52,12 +48,14 @@ describe('Testing the Khan Academy Application', () => {
     it('Tap on “Bookmarks” and verify all the bookmarks', async() => {
        await FindElement_POM.find("accessibility-id","Bookmarks").click();
        
+       await driver.takeScreenshot();
        expect(FindElement_POM.find("xpath","Modern information theory")).toExist();
        expect(FindElement_POM.find("xpath","Modern information theory")).toBeDisplayed();
 
        expect(FindElement_POM.find("xpath","Cryptography challenge 101")).toExist();
        expect(FindElement_POM.find("xpath","Cryptography challenge 101")).toBePresent();
 
+       await driver.takeScreenshot();
        expect(FindElement_POM.find("xpath","Modular arithmetic")).toExist();
        expect(FindElement_POM.find("xpath","Ancient cryptography")).toExist();
         
@@ -72,7 +70,9 @@ describe('Testing the Khan Academy Application', () => {
         }
 
        await FindElement_POM.find("xpath","Delete").click();
+       await driver.takeScreenshot();
     });
+
 
     it('Tap on “Explore” again and Tap on “Life Skills”', async() => {
         await FindElement_POM.find("accessibility-id","Explore").click();
@@ -89,9 +89,10 @@ describe('Testing the Khan Academy Application', () => {
 
     it('Verify the last seen topic name under “Recent Lessons”', async() => {
        
-        // await StartActivity_POM.activity("org.khanacademy.android",".ui.library.MainActivity");
+       
         await FindElement_POM.find("accessibility-id","Home").click();
         await Scrolling_POM.scrollTo("Recent lessons");
+        await driver.takeScreenshot();
         expect(FindElement_POM.find("xpath","Welcome to Financial Literacy")).toBeDisplayed();
         
     });
@@ -107,9 +108,28 @@ describe('Testing the Khan Academy Application', () => {
         await driver.back();
         
         await FindElement_POM.find("xpath","Hydrogenation").click();
+        await driver.takeScreenshot();
+        await expect(FindElement_POM.find("xpath","Hydrogenation")).toBeDisplayed();
         
     });
 
+
+    it('Signup to the Application', async () => {
+        
+        await StartActivity_POM.activity("org.khanacademy.android",".ui.library.MainActivity");
+        (await FindElement_POM.find("resource-id", "welcomeCardSignInButton")).click();
+        await Wait_POM.waitFor(4000);
+        (await FindElement_POM.find("xpath", "Continue with Google")).click();
+        await Wait_POM.waitFor(9000);
+        (await FindElement_POM.find("xpath", "Pratibhav Gupta")).click();
+        await Wait_POM.waitFor(9000);
+        await Scrolling_POM.scrollTo("Join class");
+        await driver.takeScreenshot();
+        await expect(FindElement_POM.find("xpath", "Join class")).toBeExisting();
+    });
+
+
+   
     it('Select the new language for app', async() => {
         await StartActivity_POM.activity("org.khanacademy.android",".ui.library.MainActivity");
         await Scrolling_POM.scrollAndClick("Select language");  
@@ -118,8 +138,9 @@ describe('Testing the Khan Academy Application', () => {
         await Scrolling_POM.scrollAndClick("हिन्दी"); 
         
         await Wait_POM.waitFor();
-        await expect(FindElement_POM.find("xpath","क्या आप सीखने के लिए तैयार हैं?")).toBeDisplayed();
+        await expect(FindElement_POM.find("xpath","आप कुछ भी सीख सकते हैं")).toBeDisplayed();
         await Wait_POM.waitFor();
+        await driver.takeScreenshot();
 
     });
 
@@ -128,13 +149,4 @@ describe('Testing the Khan Academy Application', () => {
         driver.closeApp();
     });
  
-    // it('tc8', async() => {
-        // driver.closeApp();
-    // });
-
-    // it('tc9', async() => {
-       
-    // });
-
-
 });

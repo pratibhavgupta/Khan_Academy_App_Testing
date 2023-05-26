@@ -27,7 +27,7 @@ exports.config = {
     //
     specs: [
         // ToDo: define location for spec files here
-        './Test/Specs/testCases.js'
+        './Test/Specs/Khan_Aca_App_Test.js'
     ],
     // Patterns to exclude.
     exclude: [
@@ -58,7 +58,7 @@ exports.config = {
     capabilities: [{
         // capabilities for local Appium web tests on an Android Emulator
         "appium:platformName": 'Android', // or "iOS"
-        'appium:deviceName': 'Abhay', // or "iPhone Simulator"
+        'appium:deviceName': 'realme RMX3085', // or "iPhone Simulator"
         'appium:automationName': 'UiAutomator2', // or "XCUITest"
         "appium:app":path.join(process.cwd(),'/App/Android/khan-academy-7-9-1.apk'),
         "appium:autoGrantPermissions":true
@@ -146,7 +146,7 @@ exports.config = {
     // See the full list at http://mochajs.org/
     mochaOpts: {
         ui: 'bdd',
-        timeout: 100000
+        timeout: 120000
     },
     //
     // =====
@@ -242,11 +242,14 @@ exports.config = {
      * @param {boolean} result.passed    true if test has passed, otherwise false
      * @param {object}  result.retries   informations to spec related retries, e.g. `{ attempts: 0, limit: 0 }`
      */
-    afterTest: function(test, context, { error, result, duration, passed, retries }) {
+    // afterTest: function(test, context, { error, result, duration, passed, retries }) {
+        
+    // },
+    afterStep: async function (step, scenario, { error, duration, passed }, context) {
         if (error) {
-            browser.takeScreenshot();
-          }
-    },
+          await browser.takeScreenshot();
+        }
+      }
 
 
     /**

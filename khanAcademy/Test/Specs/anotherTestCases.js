@@ -5,7 +5,7 @@ const Wait_POM = require("../PageObjects/Wait_POM");
 
 
 describe('Testing the Khan Academy Application', () => {
-    it.skip('Signup', async () => {
+    it('Signup', async () => {
         await FindElement_POM.find("xpath", "Dismiss").click();
         await Wait_POM.waitFor(9000);
         (await FindElement_POM.find("resource-id", "welcomeCardSignInButton")).click();
@@ -20,7 +20,7 @@ describe('Testing the Khan Academy Application', () => {
         // await Wait_POM.waitFor(8000);
 
     });
-    it.skip('Search ', async () => {
+    it('Search ', async () => {
         // await  $('//*[@resource-id="whatsNewScreenDismissButton"]').touchAction('tap');
         //   (await FindElement_POM.find("resource-id","whatsNewScreenDismissButton")).touchAction('tap');
         await Wait_POM.waitFor(8000);
@@ -52,11 +52,11 @@ describe('Testing the Khan Academy Application', () => {
         await driver.back();
         await Wait_POM.waitFor(4000);
         //  await driver.keys(key.Enter);
-        (await FindElement_POM.find("xpath", "Filter")).click();
-        await driver.touchAction({
-            action: 'tap', x: 1001, y: 549
-        })
-            (await FindElement_POM.find("xpath", "Apply")).click();
+        // (await FindElement_POM.find("xpath", "Filter")).click();
+        // await driver.touchAction({
+        //     action: 'tap', x: 1001, y: 549
+        // })
+        //     (await FindElement_POM.find("xpath", "Apply")).click();
         await FindElement_POM.find("xpath", "Why S-waves only travel in solids").click();
 
     });
