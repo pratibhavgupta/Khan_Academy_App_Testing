@@ -35,7 +35,7 @@ describe('Testing the Khan Academy Application', () => {
 
         
         await Scrolling_POM.scrollTo("Cryptography challenge 101");
-        await FindElement_POM.find("fullXpath","(//android.widget.Button[@content-desc='Add Bookmark'])[2]/android.widget.ImageView").click();
+        await FindElement_POM.find("accessibility-id","Add Bookmark").click();
 
         // await StartActivity_POM.activity("org.khanacademy.android",".ui.library.MainActivity");
         // await Wait_POM.waitFor();
