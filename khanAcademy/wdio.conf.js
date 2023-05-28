@@ -133,11 +133,20 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters:[['allure', {
+    reporters:['spec',
+    ['junit', {
+        outputDir: 'junit-reports',
+        outputFileFormat: function(options) { // optional
+            return `results-${options.cid}.${options.capabilities}.xml`
+        }
+    }],
+    [
+        'allure', {
         outputDir: 'allure-results',
         disableWebdriverStepsReporting: true,
         disableWebdriverScreenshotsReporting: false,
-    }]],
+       }
+    ]],
    
 
     
